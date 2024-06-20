@@ -39,7 +39,7 @@ def get_stock_data(ticker):
 @stock_bp.route('/stock/dummy', methods=['GET'])
 def get_dummy_stock_data():
     try:
-        dummy_data_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'dummy_stock_data.json')
+        dummy_data_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'dummy_stock_data_6m.json')
         with open(dummy_data_path, 'r') as f:
             data = json.load(f)
         return jsonify(data)

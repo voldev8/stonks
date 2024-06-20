@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import StockChart from "./StockChart";
+import PageTitle from "./PageTitle";
 
 interface StockData {
   Date: string;
@@ -39,11 +40,14 @@ const StockData: React.FC = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
-      <h1>Stock Data for {ticker}</h1>
-      <StockChart data={data} />
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    <>
+      <PageTitle title={ticker} />
+      <div>
+        <h1>Stock Data for {ticker}</h1>
+        <StockChart data={data} />
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
+    </>
   );
 };
 
